@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="ScaleFB" Id="{d354267a-1e40-491c-97cd-56fb94a43883}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ScaleFB
+VAR_INPUT
+	iRohWert: INT;
+END_VAR
+VAR_OUTPUT
+	ScaledValue: INT;
+END_VAR
+VAR
+	NormMIN:INT:= 0;
+	NormMAX:INT:= 27648;
+	ScaleMIN:INT:= 0;
+	ScaleMAX:INT:= 100;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ScaledValue:= ((ScaleMAX-ScaleMIN)*(iRohWert-NormMIN)/(NormMAX-NormMIN))+ScaleMIN;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

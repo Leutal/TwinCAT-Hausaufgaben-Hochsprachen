@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FlipFlopR1" Id="{5f34c918-ba97-4bb9-8172-972d353ff99e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FlipFlopR1 		//R-Dominanter FlipFlop
+VAR_INPUT
+	bSET: BOOL;					//Baustein-interne Set-Variable
+	bRESET: BOOL;				//Baustein-interne Reset-Variable
+END_VAR
+VAR_OUTPUT
+	bQ1: BOOL;					//Baustein-interne Ausgangs-Variable
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bRESET 						//Abfrage ob Reset = 1, da R-Dominant
+	THEN					
+    bQ1 := FALSE;
+ELSIF bSET AND NOT bRESET		//Abfrage ob Set = 1 und nicht Reset = 1
+	THEN	
+    bQ1 := TRUE;
+END_IF;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

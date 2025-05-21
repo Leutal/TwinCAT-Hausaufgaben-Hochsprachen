@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="SRFlipFlop" Id="{ece312e8-3366-49e8-b101-e963a64957f5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK SRFlipFlop
+VAR_INPUT										//R-Dominanter RS-Baustein
+	bSET: BOOL;									//Baustein-interne Set-Variable
+	bRESET: BOOL;								//Baustein-interne Reset-Variable
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	SRFlipFlop: SR;								//Instanziierung des SR-Bausteins
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[SRFlipFlop(SET1:= bSET, RESET:= bRESET);		//Verknüpfung der Baustein-internen Variablen mit den Bausteineingängen]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

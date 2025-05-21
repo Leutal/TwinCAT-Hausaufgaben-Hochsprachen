@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="RSFlipFlop" Id="{2a7bc940-8e73-43ad-ac5e-48a14135cb88}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK RSFlipFlop
+VAR_INPUT											//S-Dominanter RS-Baustein
+	bSET: BOOL;										//Baustein-interne Set-Variable
+	bRESET: BOOL;									//Baustein-interne Reset-Variable
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	RSFlipFlop: RS;									//Instanziierung des RS-Bausteins
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[RSFlipFlop(SET:= bSET, RESET1:= bRESET);			//Verknüpfung der Baustein-internen Variablen mit den Bausteineingängen]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

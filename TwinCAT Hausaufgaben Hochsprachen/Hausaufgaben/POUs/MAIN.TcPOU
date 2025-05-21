@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{39f2f499-0d87-47ae-ae01-a47deb8131db}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	FlipFlopRS_Baustein: RSFlipFlop;	// Instanzierung des RS-Bibliothek-Bausteins
+	FlipFlopSR_Baustein: SRFlipFlop;	// Instanzierung des SR-Bibliothek-Bausteins
+	SR: FlipFlopR1;						// Instanzierung des SR-Bausteins mit IF, ELSIF
+	RS: FlipFlopS1;						// Instanzierung des RS-Bausteins mit IF, ELSIF
+    Ix_TasterOn: BOOL;  				// Set-Eingang
+    Ix_TasterOff: BOOL; 				// Reset-Eingang
+    bQRS: BOOL;							// RS-Ausgang mit IF, ELSIF
+	bQSR: BOOL;							// SR-Ausgang mit IF, ELSIF
+	bQRSBaustein: BOOL;					// RS-Ausgang mit Bibliothek-Baustein
+	bQSRBaustein: BOOL;					// SR-Ausgang mit Bibliothek-Baustein
+	iSensor: INT;						// Eingang Analogsensor 
+	iScaledValue: INT;					// Skalierter Wert des Analogsensors
+	ScaleFB: ScaleFB;					// Instanzierung des Scale-Bausteins
+	END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// RS(bSET := Ix_TasterOn, bRESET := Ix_TasterOff);					//Aufruf des RS-Bausteins + Verknüpfung der I/Os (IF, ELSIF)
+// bQRS := RS.bQ1;														//Zuweisung des entsprechenden Ausgangs
+// 
+// SR(bSET := Ix_TasterOn, bRESET := Ix_TasterOff);					//Aufruf des SR-Bausteins + Verknüpfung der I/Os (IF, ELSIF)
+// bQSR := SR.bQ1;														//Zuweisung des entsprechenden Ausgangs
+// 
+// FlipFlopRS_Baustein(bSET:= Ix_TasterOn, bRESET:= NOT Ix_TasterOff);	//Aufruf des RS-Bausteines + Verknüpfung der I/Os, mit RS-Baustein aus der Bibliothek
+// bQRSBaustein:= RS.bQ1;												//Zuweisung des entsprechenden Ausgangs
+// 			
+// FlipFlopSR_Baustein(bSET:= Ix_TasterOn, bRESET:= Ix_TasterOff);		//Aufruf des SR-Bausteines + Verknüpfung der I/Os, mit SR-Baustein aus der Bibliothek
+// bQSRBaustein:= SR.bQ1;												//Zuweisung des entsprechenden Ausgangs
+
+// ScaleFB(iRohWert:= iSensor);
+// iScaledValue:= ScaleFB.ScaledValue;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
