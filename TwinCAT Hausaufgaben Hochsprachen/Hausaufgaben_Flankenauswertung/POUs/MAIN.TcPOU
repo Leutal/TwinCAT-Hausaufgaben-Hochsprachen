@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{bef532bf-bc48-4fa9-86c2-18bd371b0519}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	Postivie_Flankenerkennung: R_TRIG;
+	ix_Reset: BOOL;
+	Mx_FP_Reset: BOOL;
+	Mx_lmp_Reset: BOOL;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Postivie_Flankenerkennung(CLK:= ix_Reset);
+Mx_FP_Reset:= Postivie_Flankenerkennung.Q;
+Mx_lmp_Reset:= Mx_FP_Reset;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

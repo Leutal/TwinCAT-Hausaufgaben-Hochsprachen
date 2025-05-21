@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CNestedPlcProjDef">
+	<Project GUID="{E3691047-94FE-4A19-8C02-D10537141828}" Name="Hausaufgaben_FlipFlop" PrjFilePath="..\..\Hausaufgaben_FlipFlop\Hausaufgaben_FlipFlop.plcproj" TmcFilePath="..\..\Hausaufgaben_FlipFlop\Hausaufgaben_FlipFlop.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance File="Hausaufgaben_FlipFlop Instance.xti"/>
+	</Project>
+</TcSmItem>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="R_TRIG" Id="{5d5fb26c-8958-4c6a-85f2-a215da547c3a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK R_TRIG				// FB zur positive Flankenauswertung (Rising Trigger)
+VAR_INPUT
+	CLK: BOOL;						// Eingangssignal
+END_VAR
+VAR_OUTPUT
+	Q: BOOL;						// Ausgangssignal
+END_VAR
+VAR
+	Last_CLK: BOOL;					// Zwischenspeicher des letzten Zustandes
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Q:= CLK AND NOT Last_CLK;
+Last_CLK := CLK;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

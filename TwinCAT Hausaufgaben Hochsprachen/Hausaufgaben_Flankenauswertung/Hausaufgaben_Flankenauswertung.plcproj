@@ -3,40 +3,31 @@
   <PropertyGroup>
     <FileVersion>1.0.0.0</FileVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{e3691047-94fe-4a19-8c02-d10537141828}</ProjectGuid>
+    <ProjectGuid>{d3060c3a-4dc8-4449-ae4f-9fc55ba8ae07}</ProjectGuid>
     <SubObjectsSortedByName>true</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>Hausaufgaben</Name>
+    <Name>Hausaufgaben_Flankenauswertung</Name>
     <ProgramVersion>3.1.4026.16</ProgramVersion>
-    <Application>{56755088-c1dc-405a-9e85-e86f85013fc2}</Application>
-    <TypeSystem>{bfed0884-5a87-4890-bfc0-508fed998e84}</TypeSystem>
-    <Implicit_Task_Info>{d8f8fe86-71bc-4aa7-8cbd-e62a5fc63ab5}</Implicit_Task_Info>
-    <Implicit_KindOfTask>{b2e9c440-1b5b-4693-8a9c-ece91ce4155d}</Implicit_KindOfTask>
-    <Implicit_Jitter_Distribution>{e75b171c-14c8-4930-acdf-3f89115d790c}</Implicit_Jitter_Distribution>
-    <LibraryReferences>{e30f2421-63fc-4420-b467-936b32fd0e5f}</LibraryReferences>
+    <Application>{8f6c275d-732c-4963-b247-46826ce86b42}</Application>
+    <TypeSystem>{d4fd2646-8e18-44c9-a3cd-0fe67d88396d}</TypeSystem>
+    <Implicit_Task_Info>{8e01505d-0248-44dc-b479-63711d650366}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{6f941cec-ecbe-49ea-9e49-16d317ac2e34}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{e8351db2-70b2-4ab5-9bc8-3804b742d5d0}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{cfa8ff6f-85b3-431c-aede-2435c149f0cc}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\FlipFlopR1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FlipFlopS1.TcPOU">
+    <Compile Include="POUs\R_TRIG.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\RSFlipFlop.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\ScaleFB.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\SRFlipFlop.TcPOU">
+    <Compile Include="POUs\F_TRIG.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -62,20 +53,26 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Hausaufgaben.tmc">
+    <None Include="Hausaufgaben_Flankenauswertung.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-        <Data>
-          <o xml:space="preserve" t="OptionKey">
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
         <o>
           <v n="Name">"{192FAD59-8248-4824-A8DE-9177C94C195A}"</v>
+          <d n="SubKeys" t="Hashtable" />
+          <d n="Values" t="Hashtable" />
+        </o>
+        <v>{246001F4-279D-43AC-B241-948EB31120E1}</v>
+        <o>
+          <v n="Name">"{246001F4-279D-43AC-B241-948EB31120E1}"</v>
           <d n="SubKeys" t="Hashtable" />
           <d n="Values" t="Hashtable" />
         </o>
@@ -137,14 +134,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-        </Data>
-        <TypeList>
-          <Type n="Boolean">System.Boolean</Type>
-          <Type n="Hashtable">System.Collections.Hashtable</Type>
-          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-          <Type n="String">System.String</Type>
-        </TypeList>
-      </XmlArchive>
+  </Data>
+  <TypeList>
+    <Type n="Boolean">System.Boolean</Type>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CNestedPlcProjDef">
+	<Project GUID="{D3060C3A-4DC8-4449-AE4F-9FC55BA8AE07}" Name="Hausaufgaben_Flankenauswertung" PrjFilePath="..\..\Hausaufgaben_Flankenauswertung\Hausaufgaben_Flankenauswertung.plcproj" TmcFilePath="..\..\Hausaufgaben_Flankenauswertung\Hausaufgaben_Flankenauswertung.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance File="Hausaufgaben_Flankenauswertung Instance.xti"/>
+	</Project>
+</TcSmItem>

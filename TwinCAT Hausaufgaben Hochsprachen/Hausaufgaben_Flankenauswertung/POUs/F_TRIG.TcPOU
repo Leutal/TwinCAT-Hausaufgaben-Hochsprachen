@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="F_TRIG" Id="{b2a133b3-1cb4-475b-a907-c1dcbe5b4c27}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK F_TRIG
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
