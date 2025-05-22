@@ -3,24 +3,24 @@
   <POU Name="MAIN" Id="{bef532bf-bc48-4fa9-86c2-18bd371b0519}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	Postivie_Flankenerkennung: R_TRIG;
-	ix_Reset: BOOL;
-	Mx_FP_Reset: BOOL;
-	Mx_lmp_Reset_R: BOOL;
-	Negative_Flankenerkennung: F_TRIG;
-	Mx_FN_Reset: BOOL;
-	Mx_lmp_Reset_F: BOOL;
+	Postivie_Flankenerkennung: R_TRIG;				// Instanzierung des R_TRIG-FB's
+	ix_Reset: BOOL;									// Abzufragendes Eingangssignal für beide Trigger
+	Mx_FP_Reset: BOOL;								// Ausgangsvariable des R_TRIG
+	Mx_lmp_Reset_R: BOOL;							// Merker um das Rücksetzten im PG abzufragen
+	Negative_Flankenerkennung: F_TRIG;				// Instanzierung des F_TRIG-FB's
+	Mx_FN_Reset: BOOL;								// Ausgangsvariable des F_TRIG
+	Mx_lmp_Reset_F: BOOL;							// Merker um das Rücksetzten im PG abzufragen
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Postivie_Flankenerkennung(CLK:= ix_Reset);
-Mx_FP_Reset:= Postivie_Flankenerkennung.Q;
-Mx_lmp_Reset_R:= Mx_FP_Reset;
+      <ST><![CDATA[Postivie_Flankenerkennung(CLK:= ix_Reset);			// Aufruf des R-TRIG
+Mx_FP_Reset:= Postivie_Flankenerkennung.Q;			// Zuweisung der Variablen
+Mx_lmp_Reset_R:= Mx_FP_Reset;						//
 
-Negative_Flankenerkennung(CLK:= ix_Reset);
-Mx_FN_Reset:= Negative_Flankenerkennung.Q;
-Mx_lmp_Reset_F:= Mx_FN_Reset;]]></ST>
+Negative_Flankenerkennung(CLK:= ix_Reset);			// Aufruf des F_TRIG
+Mx_FN_Reset:= Negative_Flankenerkennung.Q;			// Zuweisung der Variablen
+Mx_lmp_Reset_F:= Mx_FN_Reset;						//]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
