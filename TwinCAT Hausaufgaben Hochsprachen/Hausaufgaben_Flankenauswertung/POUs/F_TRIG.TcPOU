@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="F_TRIG" Id="{b2a133b3-1cb4-475b-a907-c1dcbe5b4c27}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK F_TRIG
+    <Declaration><![CDATA[FUNCTION_BLOCK F_TRIG				// FB zur negativen Flankenauswertung (Falling Trigger)		
 VAR_INPUT
+	CLK: BOOL;						// Zu detektierendes Eingangssignal
 END_VAR
 VAR_OUTPUT
+	Q: BOOL;						// Ausgangssignal wenn Flanke erkannt
 END_VAR
 VAR
+	LastCLK: BOOL;					// Zwischenspeicher des letzten Zustandes von CLK
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[Q:= NOT CLK AND LastCLK;
+LastCLK:= CLK;
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
