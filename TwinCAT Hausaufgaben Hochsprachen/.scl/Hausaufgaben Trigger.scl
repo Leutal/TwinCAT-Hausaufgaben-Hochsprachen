@@ -1,0 +1,77 @@
+MAIN:
+
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{bef532bf-bc48-4fa9-86c2-18bd371b0519}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	Postivie_Flankenerkennung: R_TRIG;				// Instanzierung des R_TRIG-FB's
+	ix_Reset: BOOL;									// Abzufragendes Eingangssignal für beide Trigger
+	Mx_FP_Reset: BOOL;								// Ausgangsvariable des R_TRIG
+	Mx_lmp_Reset_R: BOOL;							// Merker um das Rücksetzten im PG abzufragen
+	Negative_Flankenerkennung: F_TRIG;				// Instanzierung des F_TRIG-FB's
+	Mx_FN_Reset: BOOL;								// Ausgangsvariable des F_TRIG
+	Mx_lmp_Reset_F: BOOL;							// Merker um das Rücksetzten im PG abzufragen
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Postivie_Flankenerkennung(CLK:= ix_Reset);			// Aufruf des R-TRIG
+Mx_FP_Reset:= Postivie_Flankenerkennung.Q;			// Zuweisung der Variablen
+Mx_lmp_Reset_R:= Mx_FP_Reset;						//
+
+Negative_Flankenerkennung(CLK:= ix_Reset);			// Aufruf des F_TRIG
+Mx_FN_Reset:= Negative_Flankenerkennung.Q;			// Zuweisung der Variablen
+Mx_lmp_Reset_F:= Mx_FN_Reset;						//]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+
+F_TRIG (Falling Trigger):
+
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="F_TRIG" Id="{b2a133b3-1cb4-475b-a907-c1dcbe5b4c27}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK F_TRIG				// FB zur negativen Flankenauswertung (Falling Trigger)		
+VAR_INPUT
+	CLK: BOOL;						// Zu detektierendes Eingangssignal
+END_VAR
+VAR_OUTPUT
+	Q: BOOL;						// Ausgangssignal wenn Flanke erkannt
+END_VAR
+VAR
+	LastCLK: BOOL;					// Zwischenspeicher des letzten Zustandes von CLK
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Q:= NOT CLK AND LastCLK;
+LastCLK:= CLK;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
+
+R_TRIG (Rising Trigger):
+
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="R_TRIG" Id="{5d5fb26c-8958-4c6a-85f2-a215da547c3a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK R_TRIG				// FB zur positive Flankenauswertung (Rising Trigger)
+VAR_INPUT
+	CLK: BOOL;						// Eingangssignal
+END_VAR
+VAR_OUTPUT
+	Q: BOOL;						// Ausgangssignal
+END_VAR
+VAR
+	Last_CLK: BOOL;					// Zwischenspeicher des letzten Zustandes
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Q:= CLK AND NOT Last_CLK;
+Last_CLK := CLK;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

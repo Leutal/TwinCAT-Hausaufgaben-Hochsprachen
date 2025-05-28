@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Mx_FP_Reset" Id="{9c891d4c-1c8e-487b-a4f2-8c0a646bd387}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Mx_FP_Reset			// FB zum erkennen einer steigender Flanke
+VAR_INPUT
+	Ix_Reset: BOOL;						// Abzufragendes Signal
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	Mx_lmp_Reset: BOOL;					// Ausgang für 1 Zyklus aktiv wenn negativepositive Flanke erkannt
+	last_CLK: BOOL;						// Zwischenspeicher des letzten Zustandes des Eingangssignal
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Mx_lmp_Reset:= Ix_Reset AND NOT last_CLK;
+last_CLK:= Ix_Reset;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

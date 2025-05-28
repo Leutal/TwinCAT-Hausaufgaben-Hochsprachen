@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CCx1100Def" SubType="9703">
+	<Box Id="1" BoxType="9703" AmsPort="28928">
+		<Name>__FILENAME__</Name>
+		<ImageId>5</ImageId>
+		<Vars VarGrpType="1">
+			<Name>Eingänge</Name>
+			<Var>
+				<Name>State</Name>
+				<Comment><![CDATA[Bit 0 = K-Bus Err
+Bit 1 = Terminal State Err
+Bit 2 = Process Data Length Err
+Bit 7 = K-Bus invalid
+Bit 8 = No valid Inputs
+Bit 9 = K-Bus Input Update busy
+Bit 10 = K-Bus Output Update busy
+Bit 11 = Watchdog Err
+Bit 15 = Acyc. Function atcive (e.g. K-Bus Reset)
+]]></Comment>
+				<Type>UINT</Type>
+			</Var>
+		</Vars>
+		<Vars VarGrpType="2">
+			<Name>Ausgänge</Name>
+			<Var>
+				<Name>Ctrl</Name>
+				<Type>UINT</Type>
+			</Var>
+		</Vars>
+		<BusCoupler ComplexTermSupport="true" NewHardware="true">
+			<Term Id="2" TermType="#x3f4" Fieldbus="6">
+				<Name>Klemme 2 (KL1012)</Name>
+				<ImageId>7</ImageId>
+				<Vars VarGrpType="3">
+					<Name>Kanal 1</Name>
+					<Var>
+						<Name>Eingang</Name>
+						<Type>BIT</Type>
+						<BitOffs>32</BitOffs>
+						<InOut>0</InOut>
+					</Var>
+				</Vars>
+				<Vars VarGrpType="3">
+					<Name>Kanal 2</Name>
+					<Var>
+						<Name>Eingang</Name>
+						<Type>BIT</Type>
+						<BitOffs>33</BitOffs>
+						<InOut>0</InOut>
+					</Var>
+				</Vars>
+			</Term>
+			<Term Id="1" TermType="#x2332" Fieldbus="6">
+				<Name>End-Klemme (KL9010)</Name>
+				<ImageId>32</ImageId>
+			</Term>
+		</BusCoupler>
+		<CxBk/>
+	</Box>
+</TcSmItem>
