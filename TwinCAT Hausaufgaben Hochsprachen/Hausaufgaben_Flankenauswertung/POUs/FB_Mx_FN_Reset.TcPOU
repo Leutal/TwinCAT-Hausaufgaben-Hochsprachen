@@ -13,9 +13,17 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Mx_lmp_Reset := NOT Ix_Reset AND last_CLK;		
-last_CLK := Ix_Reset;
-]]></ST>
+      <ST><![CDATA[Mx_lmp_Reset := NOT Ix_Reset AND last_CLK;		// Ausgang schaltet für 1 Zyklus auf TRUE wenn Bedingung erfüllt, ansonsten bleibt er FALSE	
+last_CLK := Ix_Reset;							// Zwischenspeicher des letzten Zustandes des abzufragenden Signals (Ix_Reset)
+
+//Auch Möglich umzusetzten mit IF, ELSE:
+
+IF last_CLK AND NOT Ix_Reset THEN				// Wenn Bedingung einer fallenden Flanke erfüllt
+	Mx_lmp_Reset := TRUE;						// Ausgang schaltet für 1 Zyklus auf TRUE
+ELSE 
+	Mx_lmp_Reset := FALSE;						// Wenn Bedingung einer fallenden Flanke nicht erfüllt bleibt Ausgang FALSE
+END_IF
+last_CLK := Ix_Reset;							// Zwischenspeicher des letzten Zustandes des abzufragenden Signals (Ix_Reset)]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

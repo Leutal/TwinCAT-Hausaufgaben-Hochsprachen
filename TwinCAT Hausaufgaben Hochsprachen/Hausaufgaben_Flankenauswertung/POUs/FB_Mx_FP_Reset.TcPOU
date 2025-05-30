@@ -12,8 +12,17 @@ VAR
 	last_CLK: BOOL;						// Zwischenspeicher des letzten Zustandes des Eingangssignal
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Mx_lmp_Reset:= Ix_Reset AND NOT last_CLK;
-last_CLK:= Ix_Reset;]]></ST>
+      <ST><![CDATA[Mx_lmp_Reset:= Ix_Reset AND NOT last_CLK;		// Ausgang schaltet für 1 Zyklus auf TRUE wenn Bedingung erfüllt, ansonsten bleibt er FALSE	
+last_CLK:= Ix_Reset;							// Zwischenspeicher des letzten Zustandes des abzufragenden Signals (Ix_Reset)
+
+//Auch Möglich umzusetzten mit IF, ELSE:
+
+IF NOT last_CLK AND Ix_Reset THEN				// Wenn Bedingung einer steigender Flanke erfüllt
+	Mx_lmp_Reset := TRUE;						// Ausgang schaltet für 1 Zyklus auf TRUE
+ELSE 
+	Mx_lmp_Reset := FALSE;						// Wenn Bedingung einer steigender Flanke nicht erfüllt bleibt Ausgang FALSE
+END_IF
+last_CLK := Ix_Reset;							// Zwischenspeicher des letzten Zustandes des abzufragenden Signals (Ix_Reset)]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
