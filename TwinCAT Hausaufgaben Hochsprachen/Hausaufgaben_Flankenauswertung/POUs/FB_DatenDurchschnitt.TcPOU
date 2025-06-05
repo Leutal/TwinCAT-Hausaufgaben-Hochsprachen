@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DatenDurchschnitt" Id="{f86cc5dc-8354-4e17-9206-390c2708b3d3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DatenDurchschnitt
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	SimValue: REAL := 1;
+	SimWert: REAL;
+	DatenStack: ARRAY[1..10] OF INT;
+	vsi_InPos: INT := 1;
+	Timer15SInPos: TON;
+	Timer10SSimWert: TON;
+	Durchschnitt: REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Timer15SInPos(IN := TRUE, PT := T#15S);
+Timer10SSimWert(In := TRUE, PT := T#10S);
+
+{region "10S Timer"}
+IF Timer10SSimWert.Q AND SimWert <=100 THEN
+	SimValue := SimValue +1;
+	Timer10SSimWert(in := FALSE);
+	Timer10SSimWert(in := TRUE);
+ELSIF Timer10SSimWert.Q AND SimWert >=1 THEN
+	SimValue := SimValue -1;
+	Timer10SSimWert(in := FALSE);
+	Timer10SSimWert(in := TRUE);	
+END_IF
+{endregion}
+
+{region "15S Timer"}
+SimWert [vsi_InPos] := SimValue;
+IF Timer15SInPos.Q AND vsi_InPos >= 10 THEN
+	vsi_InPos := 1;
+ELSIF Timer15SInPos.Q AND vsi_InPos < 10 THEN
+	vsi_InPos := vsi_InPos +1;
+END_IF
+{endregion}
+
+{region "Durchschnitt"}
+FC_Durchschnitt(vii_Wert_1 := SimWert.1 , vii_Wert_2 := SimWert.2, vii_Wert_3 := SimWert.3);
+Durchschnitt := FC_Durchschnitt.vqr_Durchschnitt;
+{endregion}
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

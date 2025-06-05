@@ -10,8 +10,7 @@ VAR
 	Negative_Flankenerkennung: F_TRIG;				// Instanzierung des F_TRIG-FB's
 	Mx_FN_Reset: BOOL;								// Ausgangsvariable des F_TRIG
 	Mx_lmp_Reset_F: BOOL;							// Merker um das Rücksetzten im PG abzufragen
-	
-	FB_Mx_FN_Reset: FB_Mx_FN_Reset;
+	DatenDurchschnitt: FB_DatenDurchschnitt;
 END_VAR
 
 ]]></Declaration>
@@ -24,8 +23,7 @@ Negative_Flankenerkennung(CLK:= ix_Reset);			// Aufruf des F_TRIG
 Mx_FN_Reset:= Negative_Flankenerkennung.Q;			// Zuweisung der Variablen
 Mx_lmp_Reset_F:= Mx_FN_Reset;						//
 
-FB_Mx_FN_Reset(Ix_Reset:= ix_Reset);
-Mx_FP_Reset:= FB_Mx_FN_Reset.Mx_lmp_Reset;]]></ST>
+DatenDurchschnitt();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -21,10 +21,16 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FB_DatenDurchschnitt.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\FB_Mx_FN_Reset.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FB_Mx_FP_Reset.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FC_Durchschnitt.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\R_TRIG.TcPOU">
