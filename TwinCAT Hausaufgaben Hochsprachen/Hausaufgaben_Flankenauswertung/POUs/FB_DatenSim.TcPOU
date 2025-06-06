@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DatenSim" Id="{d9e2dd50-5e1d-4820-b9ea-ea40361ca004}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DatenSim
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
