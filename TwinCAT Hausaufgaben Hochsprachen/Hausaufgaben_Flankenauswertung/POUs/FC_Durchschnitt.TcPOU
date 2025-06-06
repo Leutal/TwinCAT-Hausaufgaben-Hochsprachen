@@ -8,13 +8,12 @@ VAR_INPUT
 	vii_Wert_3 : INT;
 END_VAR
 VAR_OUTPUT
-	vqr_Durchschnitt: REAL;
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[vqr_Durchschnitt := ((vii_Wert_1 + vii_Wert_2 + vii_Wert_3) / 3 );]]></ST>
+      <ST><![CDATA[ FC_Durchschnitt := (vii_Wert_1 + vii_Wert_2 + vii_Wert_3) / 3;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
