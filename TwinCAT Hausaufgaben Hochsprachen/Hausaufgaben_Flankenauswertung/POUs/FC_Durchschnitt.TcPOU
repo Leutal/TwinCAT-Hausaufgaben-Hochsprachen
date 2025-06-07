@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="FC_Durchschnitt" Id="{5fd35583-b519-4c4c-9016-ca68ce2edbce}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION FC_Durchschnitt : REAL
+    <Declaration><![CDATA[FUNCTION FC_Durchschnitt : REAL				// FC um Durchschnitt zu berechnen
 VAR_INPUT
-	vii_Wert_1 : INT;
-	vii_Wert_2 : INT;
-	vii_Wert_3 : INT;
+	vii_Wert_1 : INT;						// Einganswert 1
+	vii_Wert_2 : INT;						// Einganswert 2
+	vii_Wert_3 : INT;						// Einganswert 3
 END_VAR
 VAR_OUTPUT
 END_VAR
@@ -13,7 +13,8 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[ FC_Durchschnitt := (vii_Wert_1 + vii_Wert_2 + vii_Wert_3) / 3;]]></ST>
+      <ST><![CDATA[ FC_Durchschnitt := (vii_Wert_1 + vii_Wert_2 + vii_Wert_3) / 3;			// Addition der 3 Werte anschliessend :3 um den Schnitt zu erhalten
+// Funktion kann, mit der Übergabe 3er Werte, aus einem beliebigen FB aufgerufen werden. Auch als Multiinstanz aufrufbar ]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

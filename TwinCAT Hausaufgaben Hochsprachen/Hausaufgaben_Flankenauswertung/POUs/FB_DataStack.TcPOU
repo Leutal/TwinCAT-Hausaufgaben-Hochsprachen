@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DataStack" Id="{d9e2dd50-5e1d-4820-b9ea-ea40361ca004}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DataStack
+VAR_INPUT
+	rValue: REAL;
+END_VAR
+VAR_OUTPUT
+	rAverage: REAL;
+END_VAR
+VAR
+	DataStack: ARRAY[1..100] OF REAL;
+	iInPos: INT := 1;
+	i: INT;
+	rTotal: REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[DataStack[iInPos] := rValue;
+
+IF iInPos >= 100 THEN
+	iInPos := 1;
+ELSE 
+	iInPos := iInPos +1;
+END_IF
+
+rTotal := 0;
+FOR i := 1 TO 100 BY 1 DO
+    rTotal := rTotal + DataStack[i];
+END_FOR
+rAverage := rTotal / 100;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
