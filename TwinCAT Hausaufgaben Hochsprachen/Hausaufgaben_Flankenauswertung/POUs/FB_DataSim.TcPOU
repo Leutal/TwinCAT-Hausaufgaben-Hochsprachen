@@ -18,7 +18,7 @@ END_VAR
 RisingEdge(CLK:= CountTimer.Q);
 
 IF RisingEdge.Q AND rValue < 10000 THEN
-	rValue := rValue * PI;
+	rValue := rValue * LREAL_TO_REAL(PI);
 	DataStack(rValue := rValue);
 ELSIF RisingEdge.Q AND rValue > 10000 THEN
 	rValue := (rValue /100) * 1.75;
