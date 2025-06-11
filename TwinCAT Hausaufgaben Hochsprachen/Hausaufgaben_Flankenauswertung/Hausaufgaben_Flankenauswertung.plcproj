@@ -39,6 +39,12 @@
     <Compile Include="POUs\FC_Durchschnitt.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FC_GetMaxValue.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FC_GetMinValue.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\R_TRIG.TcPOU">
       <SubType>Code</SubType>
     </Compile>

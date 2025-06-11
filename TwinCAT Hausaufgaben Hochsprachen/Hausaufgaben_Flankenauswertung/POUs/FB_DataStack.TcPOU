@@ -9,27 +9,31 @@ VAR_OUTPUT
 	rAverage: REAL;
 END_VAR
 VAR
-	DataStack: ARRAY[1..100] OF REAL;
+	DataStack: ARRAY[0..100] OF REAL;
 	iInPos: INT := 1;
 	i: INT;
 	rTotal: REAL;
+	rMaxValue: REAL;
+	rMinValue: REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[DataStack[iInPos] := rValue;
+      <ST><![CDATA[DataStack[iInPos] := rValue;				//aktueller Wert zur Abspeicherung
 
-IF iInPos >= 100 THEN
-	iInPos := 1;
-ELSE 
-	iInPos := iInPos +1;
-END_IF
+IF iInPos >= 100 THEN						//Speicherpositionsbedingung im Array
+	iInPos := 1;							//
+ELSE 										//
+	iInPos := iInPos +1;					//
+END_IF										//							
 
-rTotal := 0;
-FOR i := 1 TO 100 BY 1 DO
-    rTotal := rTotal + DataStack[i];
+rTotal := 0;								//Initialisierung Gesamtwert
+FOR i := 1 TO 100 BY 1 DO					
+    rTotal := rTotal + DataStack[i];		//Berechnung Summe aller gespeicherten Werte
 END_FOR
-rAverage := rTotal / 100;
+rAverage := rTotal / 100;					//Durchschnittsberechnung (Mittelwert je Wert)
 
+rMaxValue := FC_GetMaxValue(MaxValue := DataStack);
+rMinValue := FC_GetMinValue(MinValue := DataStack);
 ]]></ST>
     </Implementation>
   </POU>

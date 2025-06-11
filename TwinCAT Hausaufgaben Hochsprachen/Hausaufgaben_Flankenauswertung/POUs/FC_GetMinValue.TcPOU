@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FC_GetMinValue" Id="{f92596ab-14dd-4bf5-83f3-644577bdb5dd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FC_GetMinValue : REAL
+VAR_INPUT
+END_VAR
+VAR
+	iCurrentPos: INT;
+END_VAR
+VAR_IN_OUT
+	MinValue: ARRAY[0..100] OF REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[MinValue[0] := 3.402823E+38;
+
+FOR iCurrentPos := 1 TO 100 BY 1 DO
+	IF MinValue[iCurrentPos] < MinValue[0] THEN
+		MinValue[0] := MinValue[iCurrentPos];
+	END_IF
+END_FOR
+
+FC_GetMinValue := MinValue[0];]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
