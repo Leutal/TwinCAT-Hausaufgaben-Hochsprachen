@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{ed56dcfa-6359-46ce-be08-022fc3b39b08}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	DataSim: FB_DataSim;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[DataSim();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

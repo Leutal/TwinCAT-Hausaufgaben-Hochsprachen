@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CNestedPlcProjDef">
+	<Project GUID="{E8468181-1CE1-442B-8532-083B9E17799E}" Name="Array_Reset" PrjFilePath="..\..\Array_Reset\Array_Reset.plcproj" TmcFilePath="..\..\Array_Reset\Array_Reset.tmc" ReloadTmc="true" AmsPort="853" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance File="Array_Reset Instance.xti"/>
+	</Project>
+</TcSmItem>

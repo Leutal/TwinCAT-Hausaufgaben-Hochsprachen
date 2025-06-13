@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Messwerte" Id="{53625a5d-e69b-4b1d-be13-ecae0f631936}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Messwerte
+VAR_INPUT
+	Ix_Reset: BOOL;
+	rValue: REAL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	Messwerte: ARRAY[1..20] OF REAL;
+	iInPos: INT:= 1;
+	vsx_FP_Reset: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF Ix_Reset AND NOT vsx_FP_Reset THEN
+FC_ResetArray(Ix_Reset:= Ix_Reset, Messwerte := Messwerte);
+END_IF
+
+Messwerte[iInPos] := rValue;
+
+IF iInPos >= 20 THEN
+	iInPos := 1;
+ELSE
+	iInpos := iInPos +1;
+END_IF
+
+vsx_FP_Reset := Ix_Reset;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DataSim" Id="{74b0651b-ac84-4077-a6ac-bb2adacc5a02}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DataSim
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	rValue: REAL := 1.0000;
+END_VAR
+VAR
+	CountTimer: TON;
+	RisingEdge: R_TRIG;
+	DataStack: FB_Messwerte;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CountTimer(IN := TRUE, PT := T#2S);
+RisingEdge(CLK:= CountTimer.Q);
+
+IF RisingEdge.Q AND rValue < 10000 THEN
+	rValue := rValue * LREAL_TO_REAL(PI);
+	DataStack(rValue := rValue);
+ELSIF RisingEdge.Q AND rValue > 10000 THEN
+	rValue := (rValue /100) * 1.75;
+	DataStack(rValue := rValue);
+END_IF
+
+IF CountTimer.Q THEN
+	CountTimer(IN := FALSE);
+	CountTimer(IN := TRUE);
+END_IF
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FC_ResetArray" Id="{271a7883-bb6e-4e5b-a0af-09720ceff882}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FC_ResetArray : BOOL
+VAR_INPUT
+	Ix_Reset: BOOL;
+END_VAR
+VAR_STAT
+	vsx_FP_Reset: BOOL;
+END_VAR
+VAR
+	vti_Index: INT := 1;
+	iCounter: INT := 1;
+END_VAR
+VAR_IN_OUT
+	Messwerte: Array[1..20] OF REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[	FOR iCounter := 1 TO 20 DO
+		Messwerte[vti_Index] := 0;
+	END_FOR]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
