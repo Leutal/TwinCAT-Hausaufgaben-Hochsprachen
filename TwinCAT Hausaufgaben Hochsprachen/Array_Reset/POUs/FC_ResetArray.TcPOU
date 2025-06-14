@@ -18,7 +18,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[	IF Ix_Reset AND NOT vsx_FP_Reset THEN			//Abfrage positive Flanke des Ix_Reset-Signals
 	
-	FOR vti_Index := 1 TO 20 DO						//Schlaufengrösse
+	FOR vti_Index := 1 TO 20 BY 1 DO				//Schlaufengrösse
 		Messwerte[vti_Index] := 0;					//Messwert mit dem jeweiligen vti_Index auf 0 setzten
 	END_FOR
 	
