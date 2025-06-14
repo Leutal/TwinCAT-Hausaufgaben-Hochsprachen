@@ -12,7 +12,7 @@ VAR
 	vti_Index: INT := 1;							//Initialisierung des Array-Index, um beim Wert 1 zu beginnen
 END_VAR
 VAR_IN_OUT
-	Messwerte: Array[1..20] OF REAL;				//Über- und Rückgabe der Arraywerte 
+	Messwerte: ARRAY[1..20] OF REAL;				//Über- und Rückgabe der Arraywerte (Müssen beim Aufruf der Funktion übergeben werden)
 END_VAR
 ]]></Declaration>
     <Implementation>
