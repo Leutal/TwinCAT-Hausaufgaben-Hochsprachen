@@ -24,7 +24,24 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[bRemoved := FALSE;
+
+IF iProdNumber = 0 THEN
+	RETURN;
+END_IF
+
+FOR iXAxis := 1 TO 7 BY 1 DO
+	FOR iYAxis :=  1 TO 12 BY 1 DO
+		IF arrStockPosition[iXAxis, iYAxis] = iProdNumber THEN
+			arrStockPosition[iXAxis, iYAxis] := 0;
+			bRemoved := TRUE;
+			EXIT;
+		END_IF
+		IF bRemoved = TRUE THEN
+			RETURN;
+		END_IF
+	END_FOR
+END_FOR]]></ST>
       </Implementation>
     </Method>
     <Method Name="M_Store" Id="{e43b1871-eb52-4cea-be35-e1eae7e91536}">
@@ -51,9 +68,7 @@ FOR iXAxis := 1 TO 7 BY 1 DO
 			RETURN;
 		END_IF
 	END_FOR
-END_FOR
-	
-]]></ST>
+END_FOR]]></ST>
       </Implementation>
     </Method>
   </POU>
