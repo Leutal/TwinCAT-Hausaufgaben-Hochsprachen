@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CNestedPlcProjDef">
+	<Project GUID="{ACB7D397-CF82-44CB-95ED-7F158AD908C3}" Name="Hochsprachen_HRL" PrjFilePath="..\..\Hochsprachen_HRL\Hochsprachen_HRL.plcproj" TmcFilePath="..\..\Hochsprachen_HRL\Hochsprachen_HRL.tmc" ReloadTmc="true" AmsPort="854" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance File="Hochsprachen_HRL Instance.xti"/>
+	</Project>
+</TcSmItem>

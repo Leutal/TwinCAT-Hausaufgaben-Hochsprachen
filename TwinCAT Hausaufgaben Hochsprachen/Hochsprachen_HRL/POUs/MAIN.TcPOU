@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{2e83e72e-1aaa-477b-9c8a-106fe183068b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	Einlagern: FB_Einlagern;
+	iqa_Lager: ARRAY[1..7, 1..12] OF INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Einlagern(viqa_Lager := iqa_Lager);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

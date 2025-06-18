@@ -3,31 +3,25 @@
   <PropertyGroup>
     <FileVersion>1.0.0.0</FileVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{e8468181-1ce1-442b-8532-083b9e17799e}</ProjectGuid>
+    <ProjectGuid>{acb7d397-cf82-44cb-95ed-7f158ad908c3}</ProjectGuid>
     <SubObjectsSortedByName>true</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>Array_Reset</Name>
+    <Name>Hochsprachen_HRL</Name>
     <ProgramVersion>3.1.4026.16</ProgramVersion>
-    <Application>{8e400ce5-4da9-477f-b2ae-15bbaa05a3da}</Application>
-    <TypeSystem>{e9330de8-54f7-4549-8144-bd96e313affd}</TypeSystem>
-    <Implicit_Task_Info>{7ce4d31a-11d3-4d1f-b245-c621bb1326d3}</Implicit_Task_Info>
-    <Implicit_KindOfTask>{506fb0a8-b051-47ac-9c99-fe01f437fddb}</Implicit_KindOfTask>
-    <Implicit_Jitter_Distribution>{accfa7b3-1738-4455-a775-59a88e3e7708}</Implicit_Jitter_Distribution>
-    <LibraryReferences>{f8217847-b89e-4a39-a53b-ba69d22e230e}</LibraryReferences>
+    <Application>{57643d31-4653-4aee-991b-4c9172774c24}</Application>
+    <TypeSystem>{9e88571e-6c31-4e0c-a9de-10b919efbee7}</TypeSystem>
+    <Implicit_Task_Info>{ef104a5e-c06b-4dff-ac3a-569a69422d5a}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{0ba2163d-f399-424d-8552-20d9d01a5fd3}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{9ded0b01-ad39-4b9f-9797-008410ead998}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{1127e37a-bc4c-4613-965d-9923a62f3d17}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\FB_DataSim.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FB_Messwerte.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FC_ResetArray.TcPOU">
+    <Compile Include="POUs\FB_Einlagern.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -56,15 +50,15 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Array_Reset.tmc">
+    <None Include="Hochsprachen_HRL.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-        <Data>
-          <o xml:space="preserve" t="OptionKey">
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -137,14 +131,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-        </Data>
-        <TypeList>
-          <Type n="Boolean">System.Boolean</Type>
-          <Type n="Hashtable">System.Collections.Hashtable</Type>
-          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-          <Type n="String">System.String</Type>
-        </TypeList>
-      </XmlArchive>
+  </Data>
+  <TypeList>
+    <Type n="Boolean">System.Boolean</Type>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

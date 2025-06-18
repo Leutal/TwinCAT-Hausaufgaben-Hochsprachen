@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Einlagern" Id="{f0f93082-fa4a-4744-842f-1f5f687f9eea}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Einlagern
+VAR_INPUT
+	viqa_Lager: REFERENCE TO ARRAY[1..7, 1..12] OF INT;
+	vii_PNR: INT;
+	vix_Start: BOOL;
+END_VAR
+VAR_OUTPUT
+	vqi_XAchse: INT;
+	vqi_YAchse: INT;
+	vqx_OK: BOOL;
+END_VAR
+VAR_IN_OUT 
+END_VAR
+VAR
+	bLastCLKStart: BOOL;
+	X: INT;
+	Y: INT;
+	vti_IN_x: INT:= 0;
+	vti_IN_y: INT:= 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF vii_PNR = 0 THEN
+	vqx_OK := FALSE;
+	RETURN;
+END_IF
+
+IF vix_Start AND NOT bLastCLKStart THEN
+	vqx_OK := FALSE;
+	FOR X := 1 TO 7 BY 1 DO
+		FOR Y := 1 TO 12 BY 1 DO
+			IF viqa_Lager[vti_IN_x, vti_IN_y]	= 0 THEN
+				vqi_XAchse 						:= vti_IN_x;
+				vqi_YAchse 						:= vti_IN_y;
+				viqa_Lager[vti_IN_x, vti_IN_y]	:= vii_PNR;
+				vqx_OK 							:= TRUE;
+				EXIT;
+			END_IF
+		END_FOR	
+	END_FOR
+END_IF
+
+bLastCLKStart := vix_Start;	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

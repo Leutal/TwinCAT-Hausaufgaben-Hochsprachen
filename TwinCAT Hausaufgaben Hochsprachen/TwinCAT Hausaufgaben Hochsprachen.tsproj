@@ -15,12 +15,16 @@
 				<Task Id="6" Priority="23" CycleTime="100000" AmsPort="353" AdtTasks="true">
 					<Name>PlcTask3</Name>
 				</Task>
+				<Task Id="7" Priority="24" CycleTime="100000" AmsPort="354" AdtTasks="true">
+					<Name>PlcTask4</Name>
+				</Task>
 			</Tasks>
 		</System>
 		<Plc>
 			<Project File="Hausaufgaben_FlipFlop.xti"/>
 			<Project File="Hausaufgaben_Flankenauswertung.xti"/>
 			<Project File="Array_Reset.xti"/>
+			<Project File="Hochsprachen_HRL.xti"/>
 		</Plc>
 	</Project>
 </TcSmProject>

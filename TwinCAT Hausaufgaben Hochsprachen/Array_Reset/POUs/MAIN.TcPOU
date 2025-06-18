@@ -3,11 +3,10 @@
   <POU Name="MAIN" Id="{ed56dcfa-6359-46ce-be08-022fc3b39b08}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	DataSim: FB_DataSim;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[DataSim();]]></ST>
+      <ST><![CDATA[]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
